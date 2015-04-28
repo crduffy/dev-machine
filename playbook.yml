@@ -1,0 +1,50 @@
+---
+- hosts: all
+  tasks:
+    - name: SSHD
+      sudo: yes
+      apt: name=openssh-server update_cache=yes
+
+    - name: Meld
+      sudo: yes
+      apt: name=meld update_cache=yes
+
+    - name: Git
+      sudo: yes
+      apt: name=git update_cache=yes
+
+    - name: Java
+      sudo: yes
+      apt: name=default-jdk update_cache=yes
+
+    - name: Zsh
+      sudo: yes
+      apt: name=zsh update_cache=yes
+
+    - name: Siege
+      sudo: yes
+      apt: name=siege update_cache=yes
+
+    - name: Apache Bench
+      sudo: yes
+      apt: name=apache2-utils update_cache=yes
+
+    - name: Filezilla
+      sudo: yes
+      apt: name=filezilla update_cache=yes
+
+    - name: NFS
+      sudo: yes
+      apt: name=nfs-common update_cache=yes
+
+    - name: Dnsmasq
+      sudo: yes
+      apt: name=dnsmasq update_cache=yes
+
+    - name: Mysql client
+      sudo: yes
+      apt: name=mysql-client update_cache=yes
+
+    - name: PHP Cli
+      sudo: yes
+      apt: name=php5-cli update_cache=yes
