@@ -1,50 +1,43 @@
 ---
 - hosts: all
   tasks:
-    - name: SSHD
+    - name: Default Packages
       sudo: yes
-      apt: name=openssh-server update_cache=yes
+      apt: name={{item}} update_cache=yes
+      with_items:
+        - openssh-server
+        - meld
+        - git
+        - zsh
+        - siege
+        - default-jdk
+        - apache2-utils
+        - filezilla
+        - nfs-common
+        - nfs-kernel-server
+        - dnsmasq
+        - mysql-client
+        - php5-cli
+        - virtualbox
+        - terminator
+        - vim
+        - vagrant
 
-    - name: Meld
-      sudo: yes
-      apt: name=meld update_cache=yes
+    - name: Add Hipchat to apt sources
+      lineinfile: line="deb http://downloads.hipchat.com/linux/apt stable main" dest=/etc/apt/sources.list.d/atlassian-hipchat.list create=yes
 
-    - name: Git
-      sudo: yes
-      apt: name=git update_cache=yes
+    - name: Add Hipchat apt key
+      apt_key: url=https://www.hipchat.com/keys/hipchat-linux.key state=present
 
-    - name: Java
-      sudo: yes
-      apt: name=default-jdk update_cache=yes
+    - name: Install Hipchat
+      apt: name=hipchat update_cache=yes
 
-    - name: Zsh
-      sudo: yes
-      apt: name=zsh update_cache=yes
+    - name: Add chrome package list
+      lineinfile: line="deb http://dl.google.com/linux/chrome/deb/ stable main" dest=/etc/apt/sources.list.d/google-chrome.list create=yes
 
-    - name: Siege
-      sudo: yes
-      apt: name=siege update_cache=yes
+    - name: Add Google Chrome key
+      apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub state=present
 
-    - name: Apache Bench
-      sudo: yes
-      apt: name=apache2-utils update_cache=yes
+    - name: Install Google Chrome
+      apt: name=google-chrome-stable update_cache=yes
 
-    - name: Filezilla
-      sudo: yes
-      apt: name=filezilla update_cache=yes
-
-    - name: NFS
-      sudo: yes
-      apt: name=nfs-common update_cache=yes
-
-    - name: Dnsmasq
-      sudo: yes
-      apt: name=dnsmasq update_cache=yes
-
-    - name: Mysql client
-      sudo: yes
-      apt: name=mysql-client update_cache=yes
-
-    - name: PHP Cli
-      sudo: yes
-      apt: name=php5-cli update_cache=yes
