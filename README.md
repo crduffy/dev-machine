@@ -1,16 +1,9 @@
 # dev-machine
 Ansible playbook to create a dev machine
 
+To run this locally on a brand new machine.
+* sudo apt-get install ansible
+* sudo ansible-playbook -i "localhost," -c local playbook.yml
 
 Todos
-
-add
-/etc/dnsmasq.d/localhost 
-address=/.localhost/127.0.0.1
-address=/.dev/192.168.56.101
-
-vagrant
-https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.deb
-
-phpstorm
-http://download.jetbrains.com/webide/PhpStorm-8.0.3.tar.gz
+* phpstorm - http://download.jetbrains.com/webide/PhpStorm-8.0.3.tar.gz
