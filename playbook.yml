@@ -41,3 +41,5 @@
     - name: Install Google Chrome
       apt: name=google-chrome-stable update_cache=yes
 
+    - name: Create Local Dev Dns Entry
+      lineinfile: line="address=/.dev/192.168.56.101" dest=/etc/dnsmasq.d/localhost create=yes 
