@@ -22,6 +22,13 @@
         - terminator
         - vim
         - vagrant
+        - p7zip-full
+        - p7zip-rar
+        - seahorse-nautilus
+        - mysql-workbench
+        - curl
+        - nodejs
+        - npm
 
     - name: Add Hipchat to apt sources
       lineinfile: line="deb http://downloads.hipchat.com/linux/apt stable main" dest=/etc/apt/sources.list.d/atlassian-hipchat.list create=yes
@@ -42,4 +49,7 @@
       apt: name=google-chrome-stable update_cache=yes
 
     - name: Create Local Dev Dns Entry
-      lineinfile: line="address=/.dev/192.168.56.101" dest=/etc/dnsmasq.d/localhost create=yes 
+      lineinfile: line="address=/.dev/192.168.56.101" dest=/etc/dnsmasq.d/localhost create=yes
+
+    - name: Create Local ABT Dns Entry
+      lineinfile: line="address=/.abt/192.168.56.101" dest=/etc/dnsmasq.d/localhost create=yes
