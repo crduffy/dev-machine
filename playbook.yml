@@ -29,7 +29,6 @@
         - curl
         - nodejs
         - npm
-        - sublime-text
 
     - name: Add Hipchat to apt sources
       lineinfile: line="deb http://downloads.hipchat.com/linux/apt stable main" dest=/etc/apt/sources.list.d/atlassian-hipchat.list create=yes
